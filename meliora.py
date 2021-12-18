@@ -37,12 +37,12 @@ def recordAudio():
 	global count
 
 	#----------------- These lines in testing as of 2/28/2021 ---------------------
-		config: {			
-			speechContexts: [{
-				phrases: ["Mel"],
-				boost: 50
-			}]
-		}
+	config: {			
+		speechContexts: [{
+			phrases: ["Mel"],
+			boost: 50
+		}]
+	}
    
 	r = sr.Recognizer()
 	with sr.Microphone() as source:
