@@ -3,17 +3,17 @@
 
 # Current Max Statement Num ==
 
+import asyncio
 import os
 import sys
-import speech_recognition as sr
-import asyncio
-import threading	
-import vocabulary
-from time import ctime
+import threading
 import time
-import os
+from time import ctime
+
+import speech_recognition as sr
 from gtts import gTTS
 
+import vocabulary
 
 #--------------------- Global Variables --------------------------------
 Statement_num = 0
@@ -37,12 +37,12 @@ def recordAudio():
 	global count
 
 	#----------------- These lines in testing as of 2/28/2021 ---------------------
-		config: {			
-			speechContexts: [{
-				phrases: ["Mel"],
-				boost: 50
-			}]
-		}
+	config: {			
+		speechContexts: [{
+			phrases: ["Mel"],
+			boost: 50
+		}]
+	}
    
 	r = sr.Recognizer()
 	with sr.Microphone() as source:
@@ -54,7 +54,7 @@ def recordAudio():
 		print("Miss Number : ", Miss_num) 
 		print("Total Count : ", count)
 
-	#audio = r.listen(source, phrase_time_limit = 5)   // uncomment this to record audio 12/7/21
+	#audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21
 
 
     # Speech recognition using Google Speech Recognition -------------------
@@ -65,7 +65,8 @@ def recordAudio():
         # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 		
 		#data = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
-		data = input("input statement \n")
+		rawresponse = input("input statement \n")
+		data = rawresponse.lower()
         #print(data)
     
 	except sr.UnknownValueError:
@@ -88,14 +89,17 @@ def recordAudio():
 time.sleep(2)
 
 
-#speak("Hi Sir. What can I do for you today?")							  # This line for speech
-print("Hello Sir. System Initialized. \nWhat can I do for you today?")    # This line for text
+speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
+print("System Initialized. \nHello Sir. What can I do for you today?")    # This line for text
 
 while 1:
 	data = recordAudio()
 	response = vocabulary.response(data, Statement_num)
 	 
 	print("Mel's Response :: ")
-	#speak(response) 										# This line for speech
-	print(response)											# This line for text
+	speak(response) 										# This line for speech
+	print(response)											# This line for textTe
+
+
+
 	

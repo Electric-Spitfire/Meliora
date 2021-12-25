@@ -13,32 +13,32 @@ def response(data, Statement_num):
 
 #-------------- SWAGG -----------------------------------------------------------------------------------------------
 
-	if "look alive mail it's playtime" in data or "look alive Mel it's playtime" in data:
+	if "look alive mail it's playtime" in data or "look alive mel it's playtime" in data:
 		Statement_num = 7
 		return("Yessir. What're we doing today?")
 
-	if "all right Mel look alive it's playtime" in data:
+	if "all right mel look alive it's playtime" in data:
 		Statement_num = 7
 		return("Yessir. What're we doing today?")
 
-	if "Mel hold this place down" in data or "Mel standby" in data:
+	if "mel hold this place down" in data or "mel standby" in data:
 		Statement_num = 9
 		return("Yessir. On standby")
 
 #-------- GOOD MORNING / EVENING ----------------------------------------------------------------------------------------
 
-	if "Good evening Mel" in data or "Mel good Evening" in data:
-		return("Good Evening Sir")
+	if "good evening mel" in data or "mel good evening" in data:
+		return("good evening sir")
 
-	if "Hello Mel" in data or "Hi Mel" in data:
+	if "hello mel" in data or "hi mel" in data:
 		return("Hello Sir")
 
-	if "Good morning Mel" in data or "Mel good morning" in data:
+	if "good morning mel" in data or "mel good morning" in data:
 		return("Good Morning Sir")
 
 #--------------- WORK TIMERS-----------------------------------------------------------------------------------------------
 
-	if "Mel let's do some work" in data:
+	if "mel let's do some work" in data:
 		Statement_num = 10
 		return("Sounds like a plan sir. Longterm or Shortterm sir?.")
 
@@ -62,11 +62,11 @@ def response(data, Statement_num):
 
 #------------------------ QUEUES/INTROS ------------------------------------------------------------------------------
 
-	if "Mel how you doing" in data:
+	if "mel how you doing" in data:
 		return("Doing well sir. And you?")
 		Statement_num = 5
 
-	if "alright Mel let's get to it" in data:
+	if "alright mel let's get to it" in data:
 		return("Sounds like a plan sir. Can I help?")
 		Statement_num = 8
 
@@ -74,7 +74,7 @@ def response(data, Statement_num):
 		return("Sounds like a plan sir. Can I help?")
 		Statement_num = 8
 
-	if "Mel let's get to it" in data:
+	if "mel let's get to it" in data:
 		return("Sounds like a plan sir. Can I help?")
 		Statement_num = 8
 
@@ -84,32 +84,32 @@ def response(data, Statement_num):
 
 
 
-	if "Mel how are you today" in data or "how are you today Mel" in data:
+	if "mel how are you today" in data or "how are you today mel" in data:
 		return("Always well sir. And you?")
 		Statement_num = 5
 
-	if "Mel you up" in data or "Mel are you up" in data or "Mel Europe" in data:
+	if "mel you up" in data or "mel are you up" in data or "mel europe" in data:
 		return("Yessir. I'm here.")
 
-	if "Mel are you with me" in data or "Mel can you hear me" in data or "Mel you with me" in data:
+	if "mel are you with me" in data or "mel can you hear me" in data or "mel you with me" in data:
 		return("Yessir. I'm with you")
 
-	if "you with me Mel" in data or "you got me Mel" in data or "Mel you got me" in data:
+	if "you with me mel" in data or "you got me mel" in data or "mel you got me" in data:
 		return("Yessir")
 
 	if "give him the rundown" in data:
 		return("Yessir. I'm Mel, assistant to Pat Flanigan. pleasure to meet you.")
 
-	if "Mel what can you do" in data or "what can you do" in data:
+	if "mel what can you do" in data or "what can you do" in data:
 		return("For now I can talk and play some tunes")
 
 # #------------- QUESTIONS ---------------------------------------------------------------------------------------------
 
 
-	if "Mel what time is it" in data:
+	if "mel what time is it" in data:
 		return(ctime())
 
-	if "Mel how are you" in data:
+	if "mel how are you" in data:
 		return("Always well sir")
 
 	if "what is your name" in data or "what's your name" in data:
@@ -117,15 +117,15 @@ def response(data, Statement_num):
 
 # #---------------- REAL SHIT -------------------------------------------------------------------------------------------
 
-	if "Mel why do I do what I do" in data:
+	if "mel why do I do what I do" in data:
 		return("Well sir. Primarily your nation. Your family aswell.")
 
 # #------------ INSULTS --------------------------------------------------------------------------------------------------
 
-	if "Mel suck my dick" in data or "suck my dick" in data:
+	if "mel suck my dick" in data or "suck my dick" in data:
 		return("Fuck you, suck your own dick")
 
-	if "Mel f*** you" in data:
+	if "mel f*** you" in data:
 		return("Fuck off asshole, I've got shit to do")
 
 	if "f*** you Mel" in data:
@@ -161,7 +161,8 @@ def response(data, Statement_num):
 	if "thank you" in data and Statement_num == 9:
 		return("always")
 
-
+	else:
+		return("none")
 
 
 
