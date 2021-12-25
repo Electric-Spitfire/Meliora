@@ -35,16 +35,16 @@ def response(data, Statement_num):
 # #-------- GOOD MORNING / EVENING ----------------------------------------------------------------------------------------
 
 
-	if ( difflib.SequenceMatcher(None, "good morning mel", data).ratio() >= 0.85):
+	if ( difflib.SequenceMatcher(None, "good morning mel", data).ratio() >= 0.75):
  		return("Good Morning Sir")
 
 	if ( difflib.SequenceMatcher(None, "good evening mel", data).ratio() >= 0.75):
  		return("Good Evening Sir")
 
-	if ( difflib.SequenceMatcher(None, "hello mel", data).ratio() >= 0.85):
+	if ( difflib.SequenceMatcher(None, "hello mel", data).ratio() >= 0.75):
  		return("Hello Sir")
 
-	if ( difflib.SequenceMatcher(None, "hi mel", data).ratio() >= 0.85):
+	if ( difflib.SequenceMatcher(None, "hi mel", data).ratio() >= 0.75):
  		return("Hello Sir")
 
 
