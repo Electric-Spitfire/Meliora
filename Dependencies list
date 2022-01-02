@@ -1,0 +1,20 @@
+List of Dependencies to make this program function. 1/1/21
+
+sudo apt-get update
+sudo apt-get upgrade
+
+git clone https://github.com/dabombpat/Meliora.git
+input access token
+
+sudo pip3 install SpeechRecognition
+sudo pip3 install gTTs
+sudo apt-get install libportaudio-dev  //*UNCLEAR IF THIS IS NEEDED
+sudo apt-get install portaudio19-dev
+
+
+  WARNING: The script gtts-cli is installed in '/home/pi/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  edit the bash.rc file to include the path:: last line
+  export PATH="$/home/pi/.local/bin:PATH"
+  
+  
