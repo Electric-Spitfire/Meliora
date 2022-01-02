@@ -10,6 +10,8 @@ sudo pip3 install SpeechRecognition
 sudo pip3 install gTTs
 sudo apt-get install libportaudio-dev  //*UNCLEAR IF THIS IS NEEDED
 sudo apt-get install portaudio19-dev
+sudo apt-get install flac
+sudo apt-get install mpg321
 
 
   WARNING: The script gtts-cli is installed in '/home/pi/.local/bin' which is not on PATH.
@@ -17,4 +19,27 @@ sudo apt-get install portaudio19-dev
   edit the bash.rc file to include the path:: last line
   export PATH="$/home/pi/.local/bin:PATH"
   
+  
+  
+  
+  edit mic settings in:: 
+  sudo nano /etc/asound.conf
+
+  add the following lines for USB device 1:
+
+    pcm.!default {
+        type hw
+        card 1
+    }
+
+    ctl.!default {
+        type hw
+        card 1
+    }
+    
+    note on startup the pi has a function for disabled folks that plays the audio "to enable screen reader press ctrl alt space"
+    to disable this function: (rename the file)
+    sudo mv /usr/share/piwiz/srprompt.wav /usr/share/piwiz/srprompt.wav.bak
+
+
   
