@@ -92,7 +92,7 @@ def recordAudio():
 time.sleep(2)
 
 
-speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
+#speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
 print("System Initialized. \nHello Sir. What can I do for you today?")    # This line for text
 
 while 1:
