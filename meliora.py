@@ -1,20 +1,33 @@
 #!/usr/bin/env python3
 # Requires PyAudio and PySpeech.
 
-# Current Max Statement Num ==
 
+import asyncio
 import os
 import sys
+<<<<<<< HEAD
 import speech_recognition as sr
 import asyncio
 import threading	
 import vocabulary
 from time import ctime
+=======
+import threading
+>>>>>>> speechcompare
 import time
-import os
+import difflib
+from time import ctime
+import speech_recognition as sr
 from gtts import gTTS
+import pyaudio
+
+import vocabulary
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> speechcompare
 #--------------------- Global Variables --------------------------------
 Statement_num = 0
 Miss_num = 0
@@ -50,11 +63,16 @@ def recordAudio():
      	#r.adjust_for_ambient_noise(source)                            # this is a new test line as of 1/29/2021
 		print("\n---------------------------------")
 		print("Say something!")
-		print("Statement Number : " ,Statement_num)
-		print("Miss Number : ", Miss_num) 
-		print("Total Count : ", count)
+		#print("Statement Number : " ,Statement_num)
+		#print("Miss Number : ", Miss_num) 
+		#print("Total Count : ", count)
 
+<<<<<<< HEAD
 	#audio = r.listen(source, phrase_time_limit = 5)   // uncomment this to record audio 12/7/21
+=======
+		audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21 
+														  # DO NOT UNINDENT THE ABOVE LINE, INDENTATION IS MAD IMPORTANT
+>>>>>>> speechcompare
 
 
     # Speech recognition using Google Speech Recognition -------------------
@@ -64,8 +82,14 @@ def recordAudio():
         # Uses the default API key
         # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 		
+<<<<<<< HEAD
 		#data = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
 		data = input("input statement \n")
+=======
+		rawresponse = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
+		#rawresponse = input("input statement \n")							  ## Uncomment this to input text 12/24/21
+		data = rawresponse.lower()
+>>>>>>> speechcompare
         #print(data)
     
 	except sr.UnknownValueError:
@@ -83,6 +107,7 @@ def recordAudio():
 
 
 #------------------ PROGRAM RUNS HERE -----------------------------------------------------------------------
+<<<<<<< HEAD
 
 # initialization
 time.sleep(2)
@@ -99,3 +124,31 @@ while 1:
 	#speak(response) 										# This line for speech
 	print(response)											# This line for text
 	
+=======
+
+# initialization
+time.sleep(2)
+
+
+#speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
+print("System Initialized. \nHello Sir. What can I do for you today?")    # This line for text
+
+while 1:
+	data = recordAudio()
+	response = vocabulary.response(data, Statement_num)
+
+	print("Mel heard :: ")
+	print(data)	
+	print("\n")
+
+	print("Mel's Response :: ")
+	if (response != "nothing to see here"):
+		speak(response) 										# This line for speech
+		print(response)											# This line for text
+
+										
+	
+
+
+	
+>>>>>>> speechcompare
