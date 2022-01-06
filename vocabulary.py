@@ -8,6 +8,7 @@ import a_few_functions
 
 
 # -----------------------------------------------------------------------------------------------------------------------------------
+global expecting_response 
 expecting_response = False
 
 
@@ -30,8 +31,10 @@ def closeenoughinlist(listofgoalstrings, string, percentage):
 			return True
 
 def endofconvo():
+	global expecting_response 
 	expecting_response = False
-def expecting_response():
+def expectingresponse():
+	global expecting_response 
 	expecting_response = True
 
 
@@ -42,11 +45,11 @@ def response(data):
 #-------------- GENERAL CONVERSATION STARTERS ---------------------------------------------------------------------------------------------
 	CALL_listofintroductions = [
 		"hello mel", "hi mel", "good day mel", "mel you up",  "mel you got me", 
-		"yo whats up mel", "hey mel", "whats up mel", "yo mel"
+		"yo whats up mel", "hey mel", "whats up mel", "yo mel", "hello again mel"
 	]
 	RESPONSE_listofintroductions = [
-		"Hello Sir.", "How are you today.  Boss", 
-		"Welcome back Sir", "Welcome back.  Boss"
+		"Hello Sir.", "How are you today. Boss", "Welcome back Sir", "Welcome back.  Boss",
+		"How are you today. Sir", "Good to see you again. Boss. How are you?", "Sir. How's the Day?"
 	]
 	CALL_listofmelintroduceyourself = [
 		"mel introduce yourself", "mel give him the rundown", "mel give her the rundown", "introduce yourself mel", "mel say hi", "say hi mel"
@@ -56,8 +59,16 @@ def response(data):
 
 
 	if closeenoughinlist(CALL_listofintroductions, data, .75):
- 		return random.choice(RESPONSE_listofintroductions)
-	if closeenoughinlist(CALL_listofmelintroduceyourself, data, .75):
+		response = random.choice(RESPONSE_listofintroductions)
+		if (response == "How are you today. Boss" 
+		or  response == "How are you today. Sir" 
+		or response == "Good to see you again. Boss. How are you?"
+		or response == "Sir. How's the Day?"):
+			expectingresponse()
+		return response
+	
+	
+	if closeenoughinlist(CALL_listofmelintroduceyourself, data, .95):
  		return "Yessir. I'm Mel, assistant to Pat Flanigan. pleasure to meet you."
 
 
@@ -73,12 +84,12 @@ def response(data):
 
 
 	if closeenough("mel how are you today", data, 0.75):
-		expecting_response()
+		expectingresponse()
 		return("Excellent Sir. And You?")
-	if (closeenoughinlist(["good", "excellent", "well", "good thank you", "excellent thank you", "well thank you"], data, .75) and expecting_response == True):
+	if (closeenoughinlist(["good", "excellent", "well", "good thank you", "excellent thank you", "well thank you", "crushing"], data, .75) and expecting_response == True):
 		endofconvo()
 		return("Very Good to hear Sir.")
-	if (closeenoughinlist(["bad", "terrible", "not so well", "quite poor mel", "not so good", "honestly bad"], data, .75) and expecting_response == True):
+	if (closeenoughinlist(["bad", "terrible", "not so well", "quite poor mel", "not so good", "honestly bad", "down bad"], data, .75) and expecting_response == True):
 		endofconvo()
 		return("I'm sorry Sir, Perhaps some work will cheer you up?")	
 

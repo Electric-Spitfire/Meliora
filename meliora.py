@@ -67,7 +67,7 @@ def recordAudio():
 	#----------------- These lines in testing as of 2/28/2021 ---------------------
 	config: {			
 		speechContexts: [{
-			phrases: ["Mel"],
+			phrases: ["mel"],
 			boost: 50
 		}]
 	}

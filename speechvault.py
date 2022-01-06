@@ -58,4 +58,19 @@ For the love of honor alone is ever young, and not riches, as some say, but hono
 
 """For where the rewards of virtue are greatest, there the noblest citizens are enlisted in the service of the state.
 --- Pericles, Funeral Oration 404 B.C.E""",
+
+"""The most valuable real estate in the world is the graveyard.
+There lie millions of half-written books, ideas never launched, and talents never developed. Most people die with everything still inside of them.
+The way to live is to create. Die empty.
+Get every idea out of your head and into reality.
+--- An unmarked Grave""",
+
+"""No man can be a good citizen who is not a good husband and a good father, who is not honest in his dealings with other men and women, 
+faithful to his friends and fearless in the presence of his foes, who has not got a sound heart, a sound mind, and a sound body
+--- Teddy Roosevelt 1883""",
+
+
+
+
+
 ]
