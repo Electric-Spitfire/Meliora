@@ -42,6 +42,11 @@ import speech_recognition as sr
 from gtts import gTTS
 import pyaudio
 import vocabulary
+import chatterbot
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
+#from Trainer_List import traininglog
 
 
 #--------------------- Global Variables --------------------------------
@@ -83,7 +88,7 @@ def recordAudio():
 		#print("Miss Number : ", Miss_num) 
 		#print("Total Count : ", count)
 
-		#audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21 
+		audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21 
 														  # DO NOT UNINDENT THE ABOVE LINE, INDENTATION IS MAD IMPORTANT
 
 
@@ -94,9 +99,10 @@ def recordAudio():
         # Uses the default API key
         # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 		
-		#rawresponse = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
-		rawresponse = input("input statement \n")							  ## Uncomment this to input text 12/24/21
-		data = rawresponse.lower()
+		rawresponse = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
+		#rawresponse = input("input statement \n")							  ## Uncomment this to input text 12/24/21
+		#data = rawresponse.lower()
+		data = rawresponse
     
 	except sr.UnknownValueError:
 		print("Google Speech Recognition could not understand audio")
@@ -112,30 +118,73 @@ def recordAudio():
 	return data
 
 
+
+
 #------------------ PROGRAM RUNS HERE -----------------------------------------------------------------------
 
 # initialization
 time.sleep(2)
 
 
-speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
+# speak("System Initialized. \nHello Sir. What can I do for you today?")							  # This line for speech
 print("System Initialized. \nHello Sir. What can I do for you today?")    # This line for text
 
 while 1:
 	data = recordAudio()
-	response = vocabulary.response(data)
+	#response = vocabulary.response(data)
+
+	if(data != ""):
+		with open("TrainingData_1_7_21.txt", "a") as text_file:
+			text_file.write(data)
+			text_file.write(",")
+			text_file.write("\n")
+
 
 	print("Mel heard :: ")
 	print(data)	
 	print("\n")
 
-	print("Mel's Response :: ")
-	if (response != "nothing to see here"):
-		speak(response) 										# This line for speech
-		print(response)											# This line for text
 
-										
-	
+
+	#print("Mel's Response :: ")
+	#if (response != "nothing to see here"):
+	#	speak(response) 										# This line for speech
+	#	print(response)											# This line for text
+
+
+
+
+
+
+
+
+# chatbot = ChatBot('Meliora', #read_only = True,
+# storage_adapter='chatterbot.storage.SQLStorageAdapter',
+# database_uri='sqlite:///database.sqlite3',
+# #logic_adapters=[
+# #	'chatterbot.logic.MathematicalEvaluation',
+# #	'chatterbot.logic.TimeLogicAdapter',
+# #	'chatterbot.logic.BestMatch'
+# #]
+# )
+
+
+
+
+# trainer = ListTrainer(chatbot)
+
+# trainer.train([
+# 'Hi',
+# 'Hello',
+# 'How are you today?',
+# 'Good, Thank you.',
+# 'Good to hear.',
+# ])
+
+
+# while(True):										
+# 	response = chatbot.get_response(input("input:"))
+# 	print(response)
 
 
 	
