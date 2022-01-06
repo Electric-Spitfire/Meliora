@@ -2,17 +2,18 @@
 
 
 
-
 	# "Good morning. It's 7 A.M. The weather in Malibu is 72 degrees with scattered clouds." 
 	# "The surf conditions are fair with waist to shoulder highlines, high tide will be at 10:52 a.m."
 		
 		# ―J.A.R.V.I.S.
+
 
 	# "Say, J.A.R.V.I.S., is it that time?"
 	# "The House Party Protocol, sir?"
 	# "Correct."
 		
 		# ―Tony Stark and J.A.R.V.I.S.
+
 
 	# "All wrapped up here, sir. Will there be anything else?"
 	# "You know what to do."
