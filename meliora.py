@@ -55,7 +55,7 @@ def recordAudio():
 		#print("Miss Number : ", Miss_num) 
 		#print("Total Count : ", count)
 
-		audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21 
+		# audio = r.listen(source, phrase_time_limit = 5)   # uncomment this to record audio 12/7/21 
 														  # DO NOT UNINDENT THE ABOVE LINE, INDENTATION IS MAD IMPORTANT
 
 
@@ -66,8 +66,8 @@ def recordAudio():
         # Uses the default API key
         # To use another API key: `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 		
-		rawresponse = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
-		#rawresponse = input("input statement \n")							  ## Uncomment this to input text 12/24/21
+		# rawresponse = r.recognize_google(audio)                                     ## Uncomment this to record audio 12/7/21
+		rawresponse = input("input statement \n")							  ## Uncomment this to input text 12/24/21
 		data = rawresponse.lower()
         #print(data)
     
