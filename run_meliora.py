@@ -116,7 +116,7 @@ def main():
     # This line for speech
     
     
-    # speak("System Initialized. \nHello Sir. What can I do for you today?")
+    speak("System Initialized. \nHello Sir. What can I do for you today?")
     
     # This line for text
     print("System Initialized. \nHello Sir. What can I do for you today?")

@@ -160,6 +160,9 @@ def response(data):
     if closeenough("mel what is the time", data, 0.8):
         return(a_few_functions.returntime())
 
+    if closeenough("mel play some music", data, .8):
+        return(a_few_functions.playmusic())
+
 
 # Look into this shit.. interesting to get mel to return the full month, day, etc.
 # now = datetime.datetime.now()

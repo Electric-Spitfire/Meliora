@@ -5,10 +5,6 @@ from Meliora import Meliora
 # mode flag if 0 then text mode, if 1 then voice mode
 mode = -1
 
-
-
-
-
 def main():
     voice_mode = getInput(
         "Would you like to run in voice mode? (y/n)", yellow).upper()
