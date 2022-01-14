@@ -28,6 +28,10 @@ MEL = None
 
 
 def setup(melioraObject=None):
+    try:
+        os.remove("response_to_speech.mp3")
+    except:
+        pass
     global MEL
     if not melioraObject:
         melioraObject = Meliora(0)
@@ -112,13 +116,16 @@ def main():
     time.sleep(2)
 
     # This line for speech
-    speak("System Initialized. \nHello Sir. What can I do for you today?")
+    
+    
+    # speak("System Initialized. \nHello Sir. What can I do for you today?")
+    
     # This line for text
     print("System Initialized. \nHello Sir. What can I do for you today?")
 
     while 1:
         data = recordAudio()
-        response = vocabulary.response(data, Statement_num)
+        response = vocabulary.response(data)
 
         print("Mel heard :: ")
         print(data)
@@ -127,7 +134,7 @@ def main():
         print("Mel's Response :: ")
         if (response != "nothing to see here"):
             speak(response) 										# This line for speech
-            print(response)											# This line for text
+            # print(response)											# This line for text
 
 
 if __name__ == "__main__":
