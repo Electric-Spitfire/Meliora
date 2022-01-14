@@ -1,5 +1,8 @@
 # Meliora
 
+<p align="center">
+  <img src="images\Asset 1-100.jpg"/>
+</p>
 Yo. What's up?
 
 This is Meliora, Pat Flan's personal assistant.
