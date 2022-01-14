@@ -21,10 +21,10 @@ question = False
 # ------------------------------------------------------------------------------------------------------------------------------------
 # This returns True or False depending if a word is close enough to another word
 def closeenough(goalstring, string, percentage):
-	perms = list(perm(string.split()))
-	for p in perms:
-		if (difflib.SequenceMatcher(None, goalstring, ' '.join(p)).ratio() >= percentage):
-			return True
+    perms = list(perm(string.split()))
+    for p in perms:
+        if (difflib.SequenceMatcher(None, goalstring, ' '.join(p)).ratio() >= percentage):
+            return True
     # return (difflib.SequenceMatcher(None, goalstring, string).ratio() >= percentage)
 
 
@@ -159,6 +159,7 @@ def response(data):
 
     if closeenough("mel what is the time", data, 0.8):
         return(a_few_functions.returntime())
+
 
 # Look into this shit.. interesting to get mel to return the full month, day, etc.
 # now = datetime.datetime.now()

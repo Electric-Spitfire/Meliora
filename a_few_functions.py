@@ -4,9 +4,8 @@ from datetime import date as dte
 
 def returndate():
     today = dte.today()
-    d2 = today.strftime("%B %d, %Y")
+    d2 = today.strftime("%A, %B %d, %Y")
     return d2
-
 
 def returntime():
     now = dt.now()
