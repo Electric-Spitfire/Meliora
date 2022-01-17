@@ -4,14 +4,14 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import json
 from json.decoder import JSONDecodeError
 import os
-username = "shahkush"
+username = ""
 scope = 'user-read-private user-read-playback-state user-modify-playback-state'
 device = None
 
 f = open('spotify_creds.json')
 credentials = json.load(f)
 
-
+username = credentials['USERNAME']
 cid = credentials['CID']
 secret = credentials['SECRET'] 
 f.close()
@@ -26,9 +26,9 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(auth=token)
 
 for d in sp.devices()['devices']:
-    if d['name'] == 'KUSH-PC':
+    if d['id'] == sp.current_playback()['device']['id']:
         device = d['id']
-    print(d)
+        print(d)
 
 def searchSong(song,debug=False):
     results = sp.search(q=song, limit=50,type='track')
@@ -51,8 +51,8 @@ def play(song,artist=None):
             return f"{t['name']} by {t['album']['artists'][0]['name']}"   
 def main():
     while True:
-    #    print(play(input("Enter song name: "),input("Enter artist name: ")))
-       searchSong(input("Enter song name: "),debug=True)
+       print(play(input("Enter song name: "),input("Enter artist name: ")))
+    #    searchSong(input("Enter song name: "),debug=True)
 
 if __name__ == '__main__':
     main()
