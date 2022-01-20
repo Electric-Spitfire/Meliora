@@ -12,7 +12,7 @@ import speech_recognition as sr
 from gtts import gTTS
 import pyaudio
 import playsound
-import vocabulary
+import vocabParse
 
 
 # --------------------- Global Variables --------------------------------
@@ -123,7 +123,7 @@ def main():
 
     while 1:
         data = recordAudio()
-        response = vocabulary.response(data)
+        response = vocabParse.main(data)
 
         print("Mel heard :: ")
         print(data)

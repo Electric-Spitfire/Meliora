@@ -7,11 +7,44 @@ Yo. What's up?
 
 This is Meliora, Pat Flan's personal assistant.
 
-| Package          |Version|
-|------------------|-------| 
-| colorama         | 0.4.4 | 
-| gTTS             | 2.2.3 |
-| playsound        | 1.2.2 |
-| pyaudio          | 0.2.11| 
-| SpeechRecognition| 3.8.1 |
-| spotipy          | 2.19.0|
+### Changelog
+----
+1. run_meliora.py `Changed input parsing to use regex`
+
+2. speeches.json `migrated speeches from speeches.py to speaches.json`
+
+3. spotify_access.py `added default device if sp.current_playback() is None`
+
+4. vocabParse.py `restructured parsing using classes; added commands for the following 1)time 2)date 3)speeches`
+
+5. README.md `added Changelog; added Installation; added Running; added Usage;`
+
+## Installation
+----
+  Clone the repository
+
+    git clone https://github.com/dabombpat/Meliora.git
+
+  Move into the repository directory
+
+    cd Meliora
+
+  Install dependencies
+
+    pip3 install -r requirements.txt
+
+## Running
+----
+  Once installed simply run main.py
+
+    python3 main.py
+
+## Usage
+----
+### Current commands
+|Commands   |                Syntax                 |
+|-----------|---------------------------------------|
+|  Spotify  | play {song} or play {song} by {artist}|
+|   Time    | what is the time                      |
+|   Date    | what is the date                      |
+|   Inspire | inspire me                            |
