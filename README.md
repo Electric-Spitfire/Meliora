@@ -44,7 +44,7 @@ This is Meliora, Pat Flan's personal assistant.
 ### Current commands
 |Commands   |                Syntax                 |
 |-----------|---------------------------------------|
-|  Spotify  | play {song} or play {song} by {artist}|
+|  Spotify  | play {song} OR play {song} by {artist}|
 |   Time    | what is the time                      |
 |   Date    | what is the date                      |
 |   Inspire | inspire me                            |
