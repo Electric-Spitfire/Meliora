@@ -64,8 +64,22 @@ def play(song, artist=None):
             # this will play the song and continue playing the queue
             sp.add_to_queue(t['uri'], device)
             sp.next_track(device)
-        return f"Playing {t['name']} by {t['album']['artists'][0]['name']}"
+        return f"Queuing {t['name']} by {t['album']['artists'][0]['name']}"
 
+def queue(song, artist=None):
+    results = searchSong(song)
+    tracks = results['tracks']['items']
+    for t in tracks:
+        if not artist:
+            if t['name'].lower() == song.lower():
+                sp.add_to_queue(t['uri'], device)
+
+        elif t['album']['artists'][0]['name'].lower() == artist.lower() and t['name'].lower() == song.lower():
+            # add song to queue and skip to it
+            # implemented this way becuase sp.start_playback(device_id=device, uris=[track['uri']]) plays the song and clears the queue
+            # this will play the song and continue playing the queue
+            sp.add_to_queue(t['uri'], device)
+        return f"Queuing {t['name']} by {t['album']['artists'][0]['name']}"
 
 def main():
     while True:

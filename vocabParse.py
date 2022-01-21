@@ -14,7 +14,7 @@ class parser:
         f.close()
         pass
 
-    def parseSpotify(self,request):
+    def parseSpotifyPlay(self,request):
         spotify_access.setupDevice()
         ''' reads input from user and uses spotify_access to play songp
         "(play)(.*)((by)(.*))?"
@@ -28,6 +28,23 @@ class parser:
             song = match.group(2).strip()
             artist = match.group(4)
             return spotify_access.play(song,artist)
+        else:
+            return None
+
+    def parseSpotifyQueue(self,request):
+        spotify_access.setupDevice()
+        ''' reads input from user and uses spotify_access to play songp
+        "(queue)(.*)((by)(.*))?"
+        accepts a string of the form "play song by artist"
+        accepts a string of the form "play song"
+        returns a string of the form "song by artist" as found by spotipy
+        '''
+        regex= r"(queue)(.*)((by)(.*))?"
+        match = re.search(regex,request)
+        if match:
+            song = match.group(2).strip()
+            artist = match.group(4)
+            return spotify_access.queue(song,artist)
         else:
             return None
 
