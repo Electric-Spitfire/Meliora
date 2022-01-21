@@ -43,10 +43,11 @@ This is Meliora, Pat Flan's personal assistant.
 ## Usage
 ----
 ### Current commands
-| Commands | Syntax                                   |
-|----------|------------------------------------------|
-| Spotify  | play {song} OR play {song} by {artist}   |
-| Queue    | queue {song} OR queue {song} by {artist} |
-| Time     | what is the time                         |
-| Date     | what is the date                         |
-| Inspire  | inspire me                               |
+| Commands | Syntax                                                     |
+|----------|------------------------------------------------------------|
+| Spotify  | play {song} OR play {song} by {artist}                     |
+| Queue    | queue {song} OR queue {song} by {artist}                   |
+| Time     | what is the time                                           |
+| Date     | what is the date                                           |
+| Inspire  | inspire me                                                 |
+| TODO     | add {task} to TODO OR delete {task} from TODO OR read TODO |

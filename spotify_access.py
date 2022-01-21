@@ -29,6 +29,11 @@ sp = spotipy.Spotify(auth=token)
 
 
 def setupDevice():
+    '''
+    Sets up the device to be used for playback
+    Tries to use current playback device, if not available, will use first device
+    :return: None
+    '''
     global device
     try:
         for d in sp.devices()['devices']:
@@ -41,6 +46,12 @@ def setupDevice():
 
 
 def searchSong(song, debug=False):
+    '''
+    Searches for a song with the given name
+    :param song: a song title
+    :param debug: used to print
+    :return: search results for the first 50 tracks matching the song
+    '''
     results = sp.search(q=song, limit=50, type='track')
     tracks = results['tracks']['items']
     if debug:
@@ -50,6 +61,12 @@ def searchSong(song, debug=False):
 
 
 def play(song, artist=None):
+    '''
+    Plays a song with the given name
+    :param song: a song title
+    :param artist: a specific artist
+    :return: String of the song playing
+    '''
     results = searchSong(song)
     tracks = results['tracks']['items']
     for t in tracks:
@@ -64,9 +81,15 @@ def play(song, artist=None):
             # this will play the song and continue playing the queue
             sp.add_to_queue(t['uri'], device)
             sp.next_track(device)
-        return f"Queuing {t['name']} by {t['album']['artists'][0]['name']}"
+        return f"Playing {t['name']} by {t['album']['artists'][0]['name']}"
 
 def queue(song, artist=None):
+    '''
+    Adds a song to the queue
+    :param song: a song title
+    :param artist: a specific artist
+    :return: String of the song queued
+    '''
     results = searchSong(song)
     tracks = results['tracks']['items']
     for t in tracks:
@@ -82,6 +105,11 @@ def queue(song, artist=None):
         return f"Queuing {t['name']} by {t['album']['artists'][0]['name']}"
 
 def main():
+    '''
+    ONLY USED FOR TESTING
+    should only be used as a library by other files to call functions
+    :return: None
+    '''
     while True:
         print(play(input("Enter song name: "), input("Enter artist name: ")))
     #    searchSong(input("Enter song name: "),debug=True)
