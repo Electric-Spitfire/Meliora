@@ -5,6 +5,7 @@ import printColor
 import json
 from json.decoder import JSONDecodeError
 import random
+import wikipedia
 
 
 class parser:
@@ -141,7 +142,7 @@ class parser:
                 list = json.load(outfile)
                 try:
                     printColor.red(f"deleted {list.pop(todo)}")
-                    a_few_functions.speak(f"deleted {list.pop(todo)}",False)
+                    a_few_functions.speak(f"deleted {list.pop(todo)}", False)
                     outfile.close()
                 except KeyError:
                     a_few_functions.speak("TODO item not found")
@@ -150,8 +151,41 @@ class parser:
                 outfile.close()
             return self.parseTODOREAD("read TODO")
 
+    def parseWIKI(self, request):
+        """
+        accepts a string in the form "learn about {search term}"
+        :param request:
+        :return: top result
+        """
+        regex = r"(learn about)(.*)"
+        match = re.search(regex, request)
+        if match:
+            search_term = match.group(2).strip()
+            # print(search_term)
+            a_few_functions.speak(f"Searching for {search_term}", False)
+            results = wikipedia.search(search_term)
+            if results:
+                full_summary =  wikipedia.summary(results[0], sentences=4, auto_suggest=False)
+                remove_parenthesis = re.sub(r'\([^()]*\)', '', full_summary).split('.')
+                new_summary = remove_parenthesis[0] + '. ' + remove_parenthesis[1] + '. ' + remove_parenthesis[2] + '. '
+                return new_summary
+        return None
+
+    def parseShutDown(self, request):
+        """
+        accepts a string in the form "shut down"
+        :param request:
+        :return: None; quits the program
+        """
+        regex = r"(shut down)"
+        match = re.search(regex, request)
+        if match:
+            a_few_functions.speak("Shutting down", False)
+            exit()
+
+
 def main(command=None):
-    p = parser() # instantiate the parser
+    p = parser()  # instantiate the parser
     '''
     if command is None then the file is being run directly
     otherwise the file is being imported by run_meliora.py and the command is passed in
@@ -159,8 +193,9 @@ def main(command=None):
 
     if not command:
         command = input("Enter command:\n ")
-    attrs = (getattr(p, name) for name in dir(p) if not name.startswith('_'))# get all the functions in the parser class
-    methods = filter(callable, attrs)# filter out the non-callable functions
+    attrs = (getattr(p, name) for name in dir(p) if
+             not name.startswith('_'))  # get all the functions in the parser class
+    methods = filter(callable, attrs)  # filter out the non-callable functions
     '''
     the following loop iterates through the functions in the parser class and runs them returning any non-None values
     '''
@@ -169,7 +204,7 @@ def main(command=None):
         if result:
             return result
 
-    return "I'm sorry, I don't know how to do that." # if no function returns a value then return this
+    return "I'm sorry, I don't know how to do that."  # if no function returns a value then return this
 
 
 if __name__ == '__main__':

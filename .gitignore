@@ -4,3 +4,10 @@ __pycache__/*
 spotify_creds.json
 .cache-shahkush
 .cache
+/.idea/.gitignore
+/.google-cookie
+/.idea/Meliora.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml

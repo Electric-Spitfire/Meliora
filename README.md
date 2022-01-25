@@ -15,7 +15,7 @@ This is Meliora, Pat Flan's personal assistant.
 
 3. spotify_access.py `added default device if sp.current_playback() is None`
 
-4. vocabParse.py `restructured parsing using classes; added commands for the following 1)time 2)date 3)speeches 4)TODO`
+4. vocabParse.py `restructured parsing using classes; added commands for the following 1)time 2)date 3)speeches 4)TODO 5)Wikipedia`
 [see below for all commands and their syntax](#Usage)
 
 
@@ -42,11 +42,12 @@ This is Meliora, Pat Flan's personal assistant.
 ## Usage
 ----
 ### Current commands
-| Commands | Syntax                                                     |
-|----------|------------------------------------------------------------|
-| Spotify  | play {song} OR play {song} by {artist}                     |
-| Queue    | queue {song} OR queue {song} by {artist}                   |
-| Time     | what is the time                                           |
-| Date     | what is the date                                           |
-| Inspire  | inspire me                                                 |
-| TODO     | add {task} to TODO OR delete {task} from TODO OR read TODO |
+| Commands  | Syntax                                                     |
+|-----------|------------------------------------------------------------|
+| Spotify   | play {song} OR play {song} by {artist}                     |
+| Queue     | queue {song} OR queue {song} by {artist}                   |
+| Time      | what is the time                                           |
+| Date      | what is the date                                           |
+| Inspire   | inspire me                                                 |
+| TODO      | add {task} to TODO OR delete {task} from TODO OR read TODO |
+| Wikipedia | learn bout {query}                                         |  
